@@ -1,0 +1,25 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.swp
+*.swo
+.env
+.env.*
+!.env.example
+.venv*/
+venv/
+dist/
+build/
+codex-summary.log
+
+# Generated Hermes/RipDock local state. These files may contain Runtime private
+# keys, Session material, Device trust state, Pairing state, public tunnel URLs,
+# transfer metadata, or artifact bytes.
+runtime-identity.json
+dashboard-state.json
+session.json
+public-runtime-url
+ripdock/
+.hermes/
+artifacts/
+transfers/

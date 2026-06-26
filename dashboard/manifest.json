@@ -1,0 +1,14 @@
+{
+  "name": "ripdock",
+  "label": "RipDock",
+  "description": "Hermes plugin for RipDock",
+  "icon": "Network",
+  "version": "0.1.0",
+  "tab": {
+    "path": "/ripdock-protocol",
+    "position": "after:plugins"
+  },
+  "entry": "app.js",
+  "css": "styles.css",
+  "api": "api.py"
+}

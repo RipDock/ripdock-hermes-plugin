@@ -1,0 +1,825 @@
+.ripdock-plugin-root,
+.ripdock-plugin-root * {
+  box-sizing: border-box;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+  line-height: 1.35;
+  opacity: 1;
+  text-transform: none;
+}
+
+.ripdock-plugin-root {
+  --ripdock-bg: #071018;
+  --ripdock-card: #0d1722;
+  --ripdock-card-2: #101c28;
+  --ripdock-border: #334155;
+  --ripdock-border-strong: #64748b;
+  --ripdock-text: #f8fafc;
+  --ripdock-muted: #cbd5e1;
+  --ripdock-subtle: #94a3b8;
+  --ripdock-input: #070d14;
+  --ripdock-primary: #4f7cff;
+  --ripdock-primary-text: #ffffff;
+  --ripdock-danger: #ef4444;
+  --ripdock-success: #22c55e;
+  --ripdock-focus: #60a5fa;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  color: var(--ripdock-text);
+  font-size: 14px;
+}
+
+.ripdock-plugin-root h1,
+.ripdock-plugin-root h2,
+.ripdock-plugin-root h3,
+.ripdock-plugin-root p {
+  margin: 0;
+  color: var(--ripdock-text);
+}
+
+.ripdock-plugin-root .ripdock-header,
+.ripdock-plugin-root .ripdock-section-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ripdock-plugin-root .ripdock-header {
+  justify-content: flex-end;
+}
+
+.ripdock-plugin-root .ripdock-kicker {
+  margin: 0 0 4px;
+  color: var(--ripdock-muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.ripdock-plugin-root .ripdock-header h1,
+.ripdock-plugin-root .ripdock-section-title h2 {
+  margin: 0;
+  color: var(--ripdock-text);
+  font-size: 1.25rem;
+  font-weight: 750;
+}
+
+.ripdock-plugin-root .ripdock-badge {
+  border: 1px solid #15803d;
+  background: #052e16;
+  color: #bbf7d0;
+}
+
+.ripdock-plugin-root .ripdock-description,
+.ripdock-plugin-root .ripdock-section-title p,
+.ripdock-plugin-root .ripdock-note {
+  margin: 6px 0 0;
+  color: var(--ripdock-muted);
+}
+
+.ripdock-plugin-root .ripdock-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.ripdock-plugin-root .ripdock-card {
+  border: 1px solid var(--ripdock-border);
+  border-radius: 8px;
+  background: var(--ripdock-card);
+  color: var(--ripdock-text);
+}
+
+.ripdock-plugin-root .ripdock-wide {
+  grid-column: 1 / -1;
+}
+
+.ripdock-plugin-root .ripdock-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px;
+}
+
+.ripdock-plugin-root .ripdock-fields {
+  display: grid;
+  gap: 10px;
+}
+
+.ripdock-plugin-root .ripdock-fields.compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ripdock-plugin-root .ripdock-field {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+}
+
+.ripdock-plugin-root .ripdock-field-label,
+.ripdock-plugin-root .ripdock-picker-label,
+.ripdock-plugin-root .ripdock-single-field,
+.ripdock-plugin-root .ripdock-form-grid label {
+  color: var(--ripdock-muted);
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+.ripdock-plugin-root .ripdock-field-value {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ripdock-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88rem;
+}
+
+.ripdock-plugin-root .ripdock-form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 10px;
+}
+
+.ripdock-plugin-root .ripdock-public-url-row {
+  align-items: center;
+}
+
+.ripdock-plugin-root .ripdock-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ripdock-plugin-root .ripdock-form-grid label,
+.ripdock-plugin-root .ripdock-single-field {
+  display: grid;
+  gap: 6px;
+}
+
+.ripdock-plugin-root input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--ripdock-border-strong);
+  border-radius: 6px;
+  padding: 9px 10px;
+  background: var(--ripdock-input);
+  color: var(--ripdock-text);
+  caret-color: var(--ripdock-text);
+  font-size: 0.95rem;
+  outline: none;
+  -webkit-text-fill-color: var(--ripdock-text);
+}
+
+.ripdock-plugin-root input::placeholder {
+  color: var(--ripdock-subtle);
+  opacity: 1;
+  -webkit-text-fill-color: var(--ripdock-subtle);
+}
+
+.ripdock-plugin-root input:focus {
+  border-color: var(--ripdock-focus);
+  box-shadow: 0 0 0 3px rgb(96 165 250 / 0.28);
+}
+
+.ripdock-plugin-root button {
+  border: 1px solid var(--ripdock-primary);
+  border-radius: 6px;
+  padding: 8px 12px;
+  background: var(--ripdock-primary);
+  color: var(--ripdock-primary-text);
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease, opacity 120ms ease, transform 120ms ease;
+}
+
+.ripdock-plugin-root button:hover {
+  border-color: #7aa2ff;
+  background: #6b8cff;
+  color: #ffffff;
+}
+
+.ripdock-plugin-root button:focus-visible {
+  outline: 2px solid var(--ripdock-focus);
+  outline-offset: 2px;
+}
+
+.ripdock-plugin-root button:active {
+  transform: translateY(1px);
+}
+
+.ripdock-plugin-root button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.ripdock-plugin-root button.ripdock-loading {
+  cursor: wait;
+  opacity: 0.86;
+}
+
+.ripdock-plugin-root .ripdock-secondary,
+.ripdock-plugin-root .ripdock-icon-button {
+  border-color: var(--ripdock-border-strong);
+  background: #0b1220;
+  color: var(--ripdock-text);
+}
+
+.ripdock-plugin-root .ripdock-secondary:hover,
+.ripdock-plugin-root .ripdock-icon-button:hover {
+  border-color: var(--ripdock-focus);
+  background: #111c2e;
+  color: #ffffff;
+}
+
+.ripdock-plugin-root .ripdock-danger {
+  border-color: var(--ripdock-danger);
+  background: transparent;
+  color: #fecaca;
+}
+
+.ripdock-plugin-root .ripdock-danger:hover {
+  background: #7f1d1d;
+  color: #ffffff;
+}
+
+.ripdock-plugin-root .ripdock-inline-error {
+  border: 1px solid var(--ripdock-danger);
+  border-radius: 6px;
+  padding: 9px 10px;
+  background: rgb(127 29 29 / 0.32);
+  color: #fecaca;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.ripdock-plugin-root .ripdock-runtime-preview {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-height: 112px;
+  border: 2px solid var(--ripdock-primary);
+  border-radius: 10px;
+  padding: 14px;
+  color: #0f172a;
+}
+
+.ripdock-plugin-root .ripdock-preview-body {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: grid;
+  gap: 8px;
+}
+
+.ripdock-plugin-root .ripdock-preview-top {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ripdock-plugin-root .ripdock-runtime-preview strong {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: #0f172a;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.ripdock-plugin-root .ripdock-preview-url {
+  min-width: 0;
+  overflow: hidden;
+  color: #334155;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ripdock-plugin-root .ripdock-preview-fingerprint {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.ripdock-plugin-root .ripdock-preview-fingerprint span {
+  color: #475569;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.ripdock-plugin-root .ripdock-preview-fingerprint code {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  padding: 4px 6px;
+  background: rgb(15 23 42 / 0.1);
+  color: #0f172a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ripdock-plugin-root .ripdock-trust-badge {
+  flex: 0 0 auto;
+  border: 1px solid rgb(22 101 52 / 0.35);
+  border-radius: 999px;
+  padding: 3px 8px;
+  background: rgb(220 252 231 / 0.78);
+  color: #166534;
+  font-size: 0.74rem;
+  font-weight: 850;
+}
+
+.ripdock-plugin-root .ripdock-preview-icon {
+  display: grid;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 10px;
+  background: rgb(255 255 255 / 0.78);
+  color: #0f172a;
+  font-size: 1.8rem;
+}
+
+.ripdock-plugin-root .ripdock-preview-icon.no-icon {
+  border: 1px dashed #64748b;
+  background: rgb(255 255 255 / 0.62);
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.ripdock-plugin-root .ripdock-picker-group {
+  display: grid;
+  gap: 8px;
+}
+
+.ripdock-plugin-root .ripdock-swatch-row,
+.ripdock-plugin-root .ripdock-color-picker-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ripdock-plugin-root .ripdock-color-picker-row {
+  align-items: center;
+}
+
+.ripdock-plugin-root .ripdock-swatch {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 2px solid var(--ripdock-border-strong);
+  background: #101827;
+  color: var(--ripdock-text);
+  font-size: 1.18rem;
+  padding: 0;
+}
+
+.ripdock-plugin-root .ripdock-swatch.active {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px var(--ripdock-card), 0 0 0 5px var(--ripdock-primary);
+}
+
+.ripdock-plugin-root .ripdock-swatch.none-swatch {
+  width: 58px;
+  color: var(--ripdock-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.ripdock-plugin-root .ripdock-primary-pairing {
+  max-width: 420px;
+}
+
+.ripdock-plugin-root .ripdock-advanced-pairing {
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--ripdock-border);
+  border-radius: 8px;
+  padding: 14px;
+  background: var(--ripdock-card-2);
+  color: var(--ripdock-text);
+}
+
+.ripdock-plugin-root .ripdock-advanced-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ripdock-plugin-root .ripdock-advanced-header h3 {
+  margin: 0;
+  color: var(--ripdock-text);
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.ripdock-plugin-root .ripdock-advanced-toggle {
+  width: fit-content;
+  border-color: var(--ripdock-primary);
+  background: var(--ripdock-primary);
+  color: #ffffff;
+}
+
+.ripdock-plugin-root .ripdock-icon-button {
+  padding: 5px 8px;
+  font-size: 0.78rem;
+}
+
+.ripdock-plugin-root .ripdock-toast-area {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.ripdock-plugin-root .ripdock-toast {
+  display: flex;
+  max-width: min(640px, 100%);
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 1px solid var(--ripdock-border-strong);
+  border-radius: 8px;
+  padding: 10px 10px 10px 12px;
+  background: #111827;
+  color: #ffffff;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.35);
+  pointer-events: auto;
+}
+
+.ripdock-plugin-root .ripdock-toast span {
+  color: #ffffff;
+}
+
+.ripdock-plugin-root .ripdock-toast.ok {
+  border-color: var(--ripdock-success);
+}
+
+.ripdock-plugin-root .ripdock-toast.warn {
+  border-color: #f59e0b;
+}
+
+.ripdock-plugin-root .ripdock-toast.error {
+  border-color: #ef4444;
+}
+
+.ripdock-plugin-root .ripdock-toast-close {
+  border-color: var(--ripdock-border-strong);
+  background: #1f2937;
+  color: #ffffff;
+  padding: 5px 8px;
+  font-size: 0.78rem;
+}
+
+.ripdock-plugin-root .ripdock-qr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.ripdock-plugin-root .ripdock-qr-box,
+.ripdock-plugin-root .ripdock-muted-box {
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid var(--ripdock-border);
+  border-radius: 8px;
+  padding: 16px;
+  background: #0a1320;
+  color: var(--ripdock-text);
+  text-align: center;
+}
+
+.ripdock-plugin-root .ripdock-qr-label {
+  color: var(--ripdock-text);
+  font-size: 1.02rem;
+  font-weight: 800;
+}
+
+.ripdock-plugin-root .ripdock-qr-help {
+  margin: -6px 0 2px;
+  color: var(--ripdock-muted);
+  font-size: 0.92rem;
+  font-weight: 650;
+}
+
+.ripdock-plugin-root .ripdock-qr svg {
+  width: min(220px, 100%);
+  height: auto;
+  background: #ffffff;
+}
+
+.ripdock-plugin-root .ripdock-qr-empty {
+  display: grid;
+  width: 180px;
+  height: 180px;
+  place-items: center;
+  border: 1px dashed var(--ripdock-border-strong);
+  color: var(--ripdock-muted);
+}
+
+.ripdock-plugin-root .ripdock-device-list {
+  display: grid;
+  gap: 12px;
+}
+
+.ripdock-plugin-root .ripdock-device-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid var(--ripdock-border);
+  border-radius: 8px;
+  padding: 14px;
+  background: #0a1320;
+  color: var(--ripdock-text);
+}
+
+.ripdock-plugin-root .ripdock-device-card,
+.ripdock-plugin-root .ripdock-device-card * {
+  color: var(--ripdock-text);
+  -webkit-text-fill-color: currentColor;
+}
+
+.ripdock-plugin-root .ripdock-device-main {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.ripdock-plugin-root .ripdock-device-heading {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ripdock-plugin-root .ripdock-device-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--ripdock-text);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.ripdock-plugin-root .ripdock-label-edit {
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  font-size: 0.78rem;
+}
+
+.ripdock-plugin-root .ripdock-device-label-editor {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) auto auto;
+  width: 100%;
+  gap: 8px;
+}
+
+.ripdock-plugin-root .ripdock-device-label-editor input {
+  height: 36px;
+  padding: 7px 9px;
+}
+
+.ripdock-plugin-root .ripdock-device-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ripdock-plugin-root .ripdock-device-grid-fingerprint-only {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ripdock-plugin-root .ripdock-device-grid-full-identifiers {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ripdock-plugin-root .ripdock-device-grid-full-identifiers .ripdock-device-primary-field,
+.ripdock-plugin-root .ripdock-device-grid-full-identifiers .ripdock-device-fingerprint-field {
+  grid-column: 1 / -1;
+}
+
+.ripdock-plugin-root .ripdock-device-time-field {
+  grid-row: 2;
+}
+
+.ripdock-plugin-root .ripdock-device-grid-full-identifiers .ripdock-device-time-field {
+  grid-row: auto;
+}
+
+.ripdock-plugin-root .ripdock-device-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ripdock-muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.ripdock-plugin-root .ripdock-device-value-row {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+}
+
+.ripdock-plugin-root .ripdock-device-value,
+.ripdock-plugin-root .ripdock-device-meta {
+  min-width: 0;
+  overflow: hidden;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ripdock-plugin-root .ripdock-device-value {
+  display: inline-block;
+  max-width: 100%;
+  color: #f8fafc;
+  -webkit-text-fill-color: currentColor;
+  padding: 0;
+  font-weight: 800;
+  letter-spacing: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+.ripdock-plugin-root .ripdock-device-value::selection,
+.ripdock-plugin-root .ripdock-device-value-full::selection {
+  color: #f8fafc;
+  background: transparent;
+}
+
+.ripdock-plugin-root .ripdock-device-value-full {
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.ripdock-plugin-root .ripdock-device-meta {
+  color: #e2e8f0;
+  -webkit-text-fill-color: #e2e8f0;
+  font-weight: 700;
+}
+
+.ripdock-plugin-root .ripdock-copy-mini {
+  flex: 0 0 auto;
+  border-color: var(--ripdock-border-strong);
+  background: #0b1220;
+  color: var(--ripdock-text);
+  padding: 4px 7px;
+  font-size: 0.72rem;
+}
+
+.ripdock-plugin-root .ripdock-copy-mini:hover {
+  border-color: var(--ripdock-focus);
+  background: #111c2e;
+  color: #ffffff;
+}
+
+.ripdock-plugin-root .ripdock-device-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.ripdock-plugin-root .ripdock-empty {
+  border: 1px dashed var(--ripdock-border-strong);
+  border-radius: 8px;
+  padding: 24px;
+  color: var(--ripdock-muted);
+  text-align: center;
+}
+
+.ripdock-plugin-root .ripdock-agent-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.ripdock-plugin-root .ripdock-agent-card {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--ripdock-border);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(15, 23, 42, 0.66);
+}
+
+.ripdock-plugin-root .ripdock-agent-card.disabled {
+  opacity: 0.72;
+}
+
+.ripdock-plugin-root .ripdock-disabled-agent-list {
+  margin-top: 14px;
+}
+
+.ripdock-plugin-root .ripdock-agent-card-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ripdock-plugin-root .ripdock-agent-editor {
+  display: grid;
+  gap: 10px;
+}
+
+.ripdock-plugin-root .ripdock-switch-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ripdock-text);
+  font-size: 13px;
+}
+
+.ripdock-plugin-root .ripdock-switch-row input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ripdock-plugin-root .ripdock-switch {
+  width: 38px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(100, 116, 139, 0.72);
+  border: 1px solid var(--ripdock-border);
+  position: relative;
+  transition: background 0.16s ease, border-color 0.16s ease;
+}
+
+.ripdock-plugin-root .ripdock-switch::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  left: 2px;
+  top: 2px;
+  background: #f8fafc;
+  transition: transform 0.16s ease;
+}
+
+.ripdock-plugin-root .ripdock-switch-row input:checked + .ripdock-switch {
+  background: #2563eb;
+  border-color: #60a5fa;
+}
+
+.ripdock-plugin-root .ripdock-switch-row input:checked + .ripdock-switch::after {
+  transform: translateX(16px);
+}
+
+@media (max-width: 900px) {
+  .ripdock-plugin-root .ripdock-grid,
+  .ripdock-plugin-root .ripdock-fields.compact,
+  .ripdock-plugin-root .ripdock-qr-grid,
+  .ripdock-plugin-root .ripdock-form-grid,
+  .ripdock-plugin-root .ripdock-device-card,
+  .ripdock-plugin-root .ripdock-device-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ripdock-plugin-root .ripdock-field,
+  .ripdock-plugin-root .ripdock-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ripdock-plugin-root .ripdock-device-heading,
+  .ripdock-plugin-root .ripdock-device-label-editor {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .ripdock-plugin-root .ripdock-header,
+  .ripdock-plugin-root .ripdock-section-title {
+    flex-direction: column;
+  }
+}

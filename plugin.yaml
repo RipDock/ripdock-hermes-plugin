@@ -1,0 +1,6 @@
+name: ripdock
+label: RipDock
+kind: platform
+version: 0.1.0
+description: Hermes plugin for RipDock.
+author: RipDock
